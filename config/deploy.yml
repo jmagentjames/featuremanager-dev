@@ -40,7 +40,7 @@ env:
     SOLID_CACHE_ENABLED: true
     SOLID_QUEUE_ENABLED: true
     SOLID_CABLE_ENABLED: true
-    SOLID_QUEUE_IN_PUMA: true
+    SOLID_QUEUE_IN_PUMA: false
 
 # Docker build configuration
 builder:
