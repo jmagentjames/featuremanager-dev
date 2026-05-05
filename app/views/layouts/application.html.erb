@@ -8,6 +8,8 @@
     <meta name="description" content="<%= content_for(:meta_description) || "FeatureManager" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= yield :head %>
   </head>
   <body>
