@@ -38,8 +38,8 @@ env:
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
     SOLID_CACHE_ENABLED: true
-    SOLID_QUEUE_ENABLED: true
-    SOLID_CABLE_ENABLED: true
+    SOLID_QUEUE_ENABLED: false
+    SOLID_CABLE_ENABLED: false
     SOLID_QUEUE_IN_PUMA: false
 
 # Docker build configuration
