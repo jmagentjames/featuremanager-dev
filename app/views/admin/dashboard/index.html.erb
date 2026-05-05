@@ -2,20 +2,13 @@
   <h1 class="text-2xl font-bold text-slate-900">Admin Dashboard</h1>
 
   <div class="grid grid-cols-2 gap-4">
-    <div class="bg-white border border-slate-200 rounded-lg p-6">
+    <a href="<%= admin_messages_path %>" class="bg-white border border-slate-200 rounded-lg p-6 hover:border-sky-300 hover:shadow-sm transition-colors">
       <div class="text-3xl font-bold text-sky-600"><%= @unread_messages %></div>
       <div class="text-sm text-slate-500 mt-1">Unread messages</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-lg p-6">
-      <div class="text-3xl font-bold text-slate-600"><%= @total_messages %></div>
-      <div class="text-sm text-slate-500 mt-1">Total messages</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-lg p-6">
+    </a>
+    <a href="<%= admin_users_path %>" class="bg-white border border-slate-200 rounded-lg p-6 hover:border-emerald-300 hover:shadow-sm transition-colors">
       <div class="text-3xl font-bold text-emerald-600"><%= @total_users %></div>
-      <div class="text-sm text-slate-500 mt-1">Total users</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-lg p-6 flex items-center">
-      <%= link_to "Manage Users", admin_users_path, class: "text-sky-600 hover:text-sky-700 font-medium" %>
-    </div>
+      <div class="text-sm text-slate-500 mt-1">Users</div>
+    </a>
   </div>
 </div>
