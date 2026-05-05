@@ -11,6 +11,9 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= yield :head %>
+
+    <!-- Umami Analytics -->
+    <script defer src="https://analytics.paddlare.se/script.js" data-website-id="f1834f11-98ba-44c1-a626-e5963963424b"></script>
   </head>
   <body>
     <%= render "shared/header" %>
