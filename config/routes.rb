@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"
 
+  resource :profile, only: [:show, :update, :destroy]
+
   # Pages
   get "about", to: "about#show", as: :about
 
@@ -28,6 +30,12 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :show] do
       post :mark_read, on: :member
       post :mark_all_read, on: :collection
+    end
+    resources :users, only: [:index, :destroy] do
+      member do
+        patch :toggle_admin
+        post :reset_password
+      end
     end
   end
 
