@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   # Admin
   namespace :admin do
     root "dashboard#index"
-    resources :messages, only: [:index, :show]
+    resources :messages, only: [:index, :show] do
+      post :mark_read, on: :member
+      post :mark_all_read, on: :collection
+    end
   end
 
   # Health
