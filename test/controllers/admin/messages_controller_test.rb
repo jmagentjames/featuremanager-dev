@@ -4,7 +4,7 @@ class Admin::MessagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @admin = User.create!(name: "Admin", email: "admin_#{SecureRandom.hex}@example.com",
                           password: "password123", password_confirmation: "password123", admin: true)
-    post login_url, params: { email: @admin.email, password: "password123" }
+    post login_url, params: { session: { email: @admin.email, password: "password123" } }
     @message = Message.create!(name: "Bob", email: "bob@example.com", body: "Test message here")
   end
 
