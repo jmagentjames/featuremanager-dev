@@ -14,8 +14,18 @@
             <span class="px-2 py-1 text-xs font-medium bg-sky-100 text-sky-700 rounded-full"><%= unread %> unread</span>
           <% end %>
         <% end %>
-        <span class="text-sm text-slate-600"><%= Current.user.name %></span>
-        <%= button_to "Logout", logout_path, method: :delete, class: "text-sm text-slate-600 hover:text-sky-600 transition-colors" %>
+        <div class="relative">
+          <details class="group">
+            <summary class="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-sky-600 cursor-pointer list-none">
+              <%= Current.user.name %>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="absolute right-0 mt-2 w-36 bg-white border border-slate-200 rounded-lg shadow-lg py-1 z-50">
+              <%= link_to "Profile", profile_path, class: "block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50" %>
+              <%= button_to "Sign out", logout_path, method: :delete, class: "w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-50" %>
+            </div>
+          </details>
+        </div>
       <% else %>
         <%= link_to "Login", login_path, class: "text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors" %>
         <%= link_to "Sign up", signup_path, class: "text-sm font-medium text-sky-600 hover:text-sky-600 transition-colors" %>
