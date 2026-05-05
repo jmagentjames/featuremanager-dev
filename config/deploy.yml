@@ -1,0 +1,60 @@
+# Kamal deployment configuration for featuremanager.dev
+# Deploys to VPS at 77.42.86.9 via direct SSH with Kamal's built-in local registry
+service: featuremanager_dev
+
+# Docker image name
+image: featuremanager_dev
+
+# Server configuration - VPS via direct SSH
+servers:
+  web:
+    - 77.42.86.9
+
+# SSH configuration
+ssh:
+  user: deploy
+  keys: ["~/.ssh/id_ed25519"]
+  port: 22
+
+# LOCAL REGISTRY - Kamal 2.8.0+ automatically creates a local registry
+# and tunnels it via SSH to the remote host. No external registry needed!
+registry:
+  server: localhost:5555
+
+# Proxy configuration with Let's Encrypt SSL
+proxy:
+  host: featuremanager.dev
+  app_port: 3000
+  ssl: true
+  healthcheck:
+    path: /up
+
+# Environment variables
+env:
+  secret:
+    - RAILS_MASTER_KEY
+  clear:
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: true
+    RAILS_SERVE_STATIC_FILES: true
+    SOLID_QUEUE_IN_PUMA: true
+
+# Docker build configuration
+builder:
+  arch: amd64
+  args:
+    RAILS_ENV: production
+
+# Persistent volumes - SQLite databases and Active Storage
+volumes:
+  - "featuremanager_dev_storage:/rails/storage"
+
+# Bridge fingerprinted assets between versions
+asset_path: /rails/public/assets
+
+# Aliases
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole --include-password"

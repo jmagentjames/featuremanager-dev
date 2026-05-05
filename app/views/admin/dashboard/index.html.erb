@@ -1,0 +1,14 @@
+<div class="space-y-6">
+  <h1 class="text-2xl font-bold text-slate-900">Admin Dashboard</h1>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="bg-white border border-slate-200 rounded-lg p-6">
+      <div class="text-3xl font-bold text-sky-600"><%= @unread_messages %></div>
+      <div class="text-sm text-slate-500 mt-1">Unread messages</div>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-lg p-6">
+      <div class="text-3xl font-bold text-slate-600"><%= @total_messages %></div>
+      <div class="text-sm text-slate-500 mt-1">Total messages</div>
+    </div>
+  </div>
+</div>

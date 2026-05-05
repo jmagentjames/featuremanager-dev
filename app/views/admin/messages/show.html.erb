@@ -1,0 +1,21 @@
+<div class="space-y-4">
+  <div class="flex items-center justify-between">
+    <h1 class="text-xl font-semibold text-slate-900">Message</h1>
+    <%= link_to "← Back", admin_messages_path, class: "text-sm text-sky-600 hover:underline" %>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-lg p-6 space-y-4">
+    <div class="flex items-start justify-between">
+      <div>
+        <div class="font-medium text-slate-900"><%= @message.name %></div>
+        <div class="text-sm text-slate-500"><%= @message.email %></div>
+      </div>
+      <div class="text-xs text-slate-400">
+        <%= @message.created_at.strftime("%b %d, %Y at %H:%M") %>
+      </div>
+    </div>
+    <div class="border-t border-slate-100 pt-4">
+      <p class="text-slate-700 whitespace-pre-wrap"><%= @message.body %></p>
+    </div>
+  </div>
+</div>
